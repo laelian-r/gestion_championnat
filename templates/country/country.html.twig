@@ -1,0 +1,33 @@
+{# country/country.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ titre }}
+{% endblock %}
+{% block stylesheets %}
+   <link href="{{ asset('styles/main.css') }}" rel="stylesheet" type="text/css" />
+    {{ importmap('app') }}
+{% endblock %}
+{% block body %}
+    {% for pays in countries %}
+        <h2>{{ pays.name }}</h2>
+        
+        {% if pays.team %}
+            <p>Équipe : {{ pays.team.name }}</p>
+            <p>Date de création : {{ pays.team.creationDate|date('d/m/Y') }}</p>
+            <p>Stade : {{ pays.team.stade }}</p>
+            <p>Président : {{ pays.team.president }}</p>
+            {% if pays.team.logo %}
+                <img src="{{ asset('images/' ~ pays.team.logo) }}" alt="Logo de {{ pays.team.name }}" width="100">
+            {% endif %}
+            <p>Coach : {{ pays.team.coach }}</p>
+        {% else %}
+            <p>Aucune équipe associée</p>
+        {% endif %}
+
+         <div class="flex-x">
+            <a class="btn btn-secondary" href="{{ path('update_country', {'id': pays.id}) }}">Modifier</a>
+            <a class="btn btn-danger" href="{{ path('supprimer_country', {'id': pays.id}) }}" onclick="return confirm('Es-tu sûr(e) de vouloir supprimer cet élément ?');">Supprimer</a>
+        </div>
+    {% endfor %}
+    <a href="/insert_pays" class="btn btn-primary">Ajouter un pays</a>
+{% endblock %}

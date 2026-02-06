@@ -16,6 +16,7 @@ class ChampionshipRepository extends ServiceEntityRepository
         parent::__construct($registry, Championship::class);
     }
 
+
     //    /**
     //     * @return Championship[] Returns an array of Championship objects
     //     */

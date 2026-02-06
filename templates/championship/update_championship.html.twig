@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ titre }}
+{% endblock %}
+{% block stylesheets %}
+   <link href="{{ asset('styles/main.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block body %}
+    <h1>Modifier le championnat</h1>
+
+    {{ form(championshipForm) }}
+{% endblock %}

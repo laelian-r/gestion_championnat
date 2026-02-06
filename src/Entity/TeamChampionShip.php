@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\TeamChampionShipRepository;
+use App\Repository\TeamChampionshipRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: TeamChampionShipRepository::class)]
-class TeamChampionShip
+#[ORM\Entity(repositoryClass: TeamChampionshipRepository::class)]
+class TeamChampionship
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

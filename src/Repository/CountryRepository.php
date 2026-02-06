@@ -25,16 +25,6 @@ class CountryRepository extends ServiceEntityRepository
         ->getResult();
     }
 
-    public function getCountryEtType()
-    {
-        $query = $this->getEntityManager()->createQuery(
-        'SELECT p, c
-        FROM App:Produit p
-        JOIN p.type c'
-        );
-        return $query->getResult();
-    }
-
     //    /**
     //     * @return Country[] Returns an array of Country objects
     //     */

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ titre }}
+{% endblock %}
+
+{% block stylesheets %}
+   <link href="{{ asset('styles/main.css') }}" rel="stylesheet" type="text/css" />
+   {{ importmap('app') }}
+{% endblock %}
+
+{% block body %}
+    <h1>Nouveau championnat</h1>
+
+    {{ form(championshipForm) }}
+{% endblock %}

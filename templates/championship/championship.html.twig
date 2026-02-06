@@ -1,0 +1,53 @@
+{# championship/championship.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ titre }}
+{% endblock %}
+
+{% block stylesheets %}
+   <link href="{{ asset('styles/main.css') }}" rel="stylesheet" type="text/css" />
+   {{ importmap('app') }}
+{% endblock %}
+
+{% block body %}
+    {% for item in championship %}
+        <h2>{{ item.name }}</h2>
+
+        {% for team in item.team %}
+            <h3>{{ team.name }}</h3>
+        {% else %}
+            <tr>
+                <td>Aucune catégorie</td>
+            </tr>
+        {% endfor %}
+
+        <p>Date de début : {{ item.startDate|date('d/m/Y') }}</p>
+        <p>Date de fin : {{ item.endDate|date('d/m/Y') }}</p>
+        <p>Points victoire : {{ item.wonPoint }}</p>
+        <p>Points défaite : {{ item.lostPoint }}</p>
+        <p>Match nul : {{ item.drawPoint }}</p>
+        <p>Type de classement : {{ item.typeRanking }}</p>
+
+        <div class="flex-x">
+            <a
+                class="btn btn-secondary"
+                href="{{ path('update_championship', {'id': item.id}) }}"
+            >
+                Modifier
+            </a>
+
+            <a
+                class="btn btn-danger"
+                href="{{ path('supprimer_championship', {'id': item.id}) }}"
+                onclick="return confirm('Es-tu sûr(e) de vouloir supprimer cet élément ?');"
+            >
+                Supprimer
+            </a>
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('add_championship') }}" class="btn btn-primary">
+        Ajouter un championnat
+    </a>
+{% endblock %}

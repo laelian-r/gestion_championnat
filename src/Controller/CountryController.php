@@ -26,7 +26,7 @@ class CountryController extends AbstractController
         return new Response('Ajout du country avec id '.$country->getId());
 
         $team = new Team();
-        $team->setTeam($team);
+        $team->setChampionship($team);
         $teamService->ajouterTeam($team);
         return new Response('Ajout du team avec id '.$team->getId());
     }
@@ -84,7 +84,7 @@ class CountryController extends AbstractController
             }
             
             // Associer la Team au Country
-            $country->setTeam($team);
+            $country->setChampionship($team);
             
             $service->ajouterCountry($country);
             return $this->redirectToRoute('affiche_country');
@@ -193,7 +193,7 @@ class CountryController extends AbstractController
             }
             
             // Associer la Team au Country
-            $country->setTeam($team);
+            $country->setChampionship($team);
             
             $service->modifierCountry($country);
             return $this->redirectToRoute('affiche_country');

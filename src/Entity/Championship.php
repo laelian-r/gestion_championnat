@@ -35,10 +35,16 @@ class Championship
     #[ORM\Column(length: 255)]
     private ?string $typeRanking = null;
 
+    // #[ORM\ManyToOne(targetEntity: Team::class, inversedBy: "championship",cascade: ['persist'])]
+    // #[ORM\JoinColumn(name: 'team_id', referencedColumnName: 'id')]
+    // private ?Team $team = null;
+
+    // Tous vos getters et setters existants...
     public function getId(): ?int
     {
         return $this->id;
     }
+    
 
     public function getName(): ?string
     {
@@ -48,79 +54,19 @@ class Championship
     public function setName(string $name): static
     {
         $this->name = $name;
-
         return $this;
     }
 
-    public function getStartDate(): ?\DateTime
-    {
-        return $this->startDate;
-    }
 
-    public function setStartDate(\DateTime $startDate): static
-    {
-        $this->startDate = $startDate;
+    // public function getTeam(): ?Team
+    // {
+    //     return $this->team;
+    // }
+    
+    // public function setTeam(?Team $team): static
+    // {
+    //     $this->team = $team;
 
-        return $this;
-    }
-
-    public function getEndDate(): ?\DateTime
-    {
-        return $this->endDate;
-    }
-
-    public function setEndDate(\DateTime $endDate): static
-    {
-        $this->endDate = $endDate;
-
-        return $this;
-    }
-
-    public function getWonPoint(): ?int
-    {
-        return $this->wonPoint;
-    }
-
-    public function setWonPoint(int $wonPoint): static
-    {
-        $this->wonPoint = $wonPoint;
-
-        return $this;
-    }
-
-    public function getLostPoint(): ?int
-    {
-        return $this->lostPoint;
-    }
-
-    public function setLostPoint(int $lostPoint): static
-    {
-        $this->lostPoint = $lostPoint;
-
-        return $this;
-    }
-
-    public function getDrawPoint(): ?int
-    {
-        return $this->drawPoint;
-    }
-
-    public function setDrawPoint(int $drawPoint): static
-    {
-        $this->drawPoint = $drawPoint;
-
-        return $this;
-    }
-
-    public function getTypeRanking(): ?string
-    {
-        return $this->typeRanking;
-    }
-
-    public function setTypeRanking(string $typeRanking): static
-    {
-        $this->typeRanking = $typeRanking;
-
-        return $this;
-    }
+    //     return $this;
+    // }
 }

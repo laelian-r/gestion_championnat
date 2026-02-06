@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\TeamChampionShip;
+use App\Entity\TeamChampionship;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<TeamChampionShip>
+ * @extends ServiceEntityRepository<TeamChampionship>
  */
-class TeamChampionShipRepository extends ServiceEntityRepository
+class TeamChampionshipRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TeamChampionShip::class);
+        parent::__construct($registry, TeamChampionship::class);
     }
 
     //    /**
-    //     * @return TeamChampionShip[] Returns an array of TeamChampionShip objects
+    //     * @return TeamChampionship[] Returns an array of TeamChampionship objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class TeamChampionShipRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?TeamChampionShip
+    //    public function findOneBySomeField($value): ?TeamChampionship
     //    {
     //        return $this->createQueryBuilder('t')
     //            ->andWhere('t.exampleField = :val')

@@ -2,7 +2,7 @@
 namespace App\Form;
 
 use App\Entity\Championship;
-// use App\Entity\Team;
+use App\Entity\Team;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -20,19 +20,19 @@ class ChampionshipFormType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom du championnat'
             ])
-            // ->add('team', EntityType::class, [
-            //     'class' => Team::class,
-            //     'choice_label' => 'libelle',
-            //     'placeholder' => 'Choisissez une équipe',
-            // ])
+            ->add('team', EntityType::class, [
+                'class' => Team::class,
+                'choice_label' => 'name',
+                'placeholder' => 'Choisissez une équipe',
+            ])
             ->add('startDate', DateType::class, [
                 'label' => 'Date de début',
-                'mapped' => false,
+                // ← ENLEVEZ 'mapped' => false
                 'widget' => 'single_text',
             ])
             ->add('endDate', DateType::class, [
                 'label' => 'Date de fin',
-                'mapped' => false,
+                // ← ENLEVEZ 'mapped' => false
                 'widget' => 'single_text',
             ])
             ->add('wonPoint', NumberType::class, [
@@ -55,7 +55,7 @@ class ChampionshipFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Championship::class,
-            'csrf_protection' => false, // Réactivez plus tard en enlevant cette ligne
+            'csrf_protection' => false,
         ]);
     }
 }

@@ -42,23 +42,6 @@ class ChampionshipController extends AbstractController
         ]);
     }
 
-    // #[Route("/insert_championnat", name: "add_championship")]
-    // public function insert(Request $request, ChampionshipService $service): RedirectResponse|Response {
-    //     $championship = new Championship();
-    //     $form = $this->createForm(ChampionshipFormType::class, $championship);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $service->ajouterProduit($championship);
-    //         return $this->redirectToRoute('affiche_championnats');
-    //     }
-
-    //     return $this->render('championship/new_championship.html.twig', [
-    //         'championshipForm' => $form,
-    //         'titre' => 'Ajouter un championnat'
-    //     ]);
-    // }
-
     #[Route("/update_championship/{id}", name: "update_championship")]
     public function update(
         Request $request,

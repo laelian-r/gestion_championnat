@@ -14,13 +14,11 @@
     {% for item in championship %}
         <h2>{{ item.name }}</h2>
 
-        {% for team in item.team %}
-            <h3>{{ team.name }}</h3>
+        {% if item.team %}
+            <h4>{{ item.team.name }}</h4>
         {% else %}
-            <tr>
-                <td>Aucune catégorie</td>
-            </tr>
-        {% endfor %}
+            <h4>Aucune catégorie</h4>
+        {% endif %}
 
         <p>Date de début : {{ item.startDate|date('d/m/Y') }}</p>
         <p>Date de fin : {{ item.endDate|date('d/m/Y') }}</p>
